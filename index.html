@@ -5,69 +5,334 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="html5up-verti/assets/css/main.css">
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --primary-dark: #1557b0;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc04;
+            --text-primary: #202124;
+            --text-secondary: #5f6368;
+            --background-light: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-primary);
+            background-color: var(--background-light);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-primary);
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+
+        h1 { 
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+        }
+        
+        h2 { 
+            font-size: clamp(1.4rem, 3vw, 2rem);
+            font-weight: 600;
+        }
+        
+        h3 { 
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 600;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #header {
+            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        #header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        #logo {
+            text-align: center;
+        }
+
+        #logo img {
+            width: 200px;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+
+        #logo img:hover {
+            transform: scale(1.05);
+        }
+
+        #nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        #nav ul li a {
+            color: rgba(255,255,255,0.9);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+            font-weight: 500;
+        }
+
+        #nav ul li a:hover {
+            color: var(--white);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .section {
+            padding: 120px 0 80px 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section.bg-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section.bg-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .bg-white {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 20px 0;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .bg-white:hover {
+            transform: translateY(-5px);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        #footer {
+            background: var(--text-primary);
+            color: var(--white);
+            padding: 60px 0 30px;
+            font-size: 1rem;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            #header .container {
+                flex-direction: column;
+                padding: 15px;
+            }
+            
+            #nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            #nav ul li a {
+                padding: 0.5rem;
+            }
+        }
+
+        #home {
+            padding-top: 140px;
+        }
+
+        .bg-white h1, 
+        .bg-white h2, 
+        .bg-white h3,
+        .bg-white p,
+        .bg-white ul,
+        .bg-white li {
+            color: var(--text-primary) !important;
+        }
+
+        p, ul, li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-<body class="bg-white font-sans">
-    <div class="container mx-auto px-4 pt-12 mt-10 mb-10">
-        <h1 class="text-3xl font-bold text-gray-800">Platform Technology Ventures</h1>
-        <img src="/pastedGraphic.png" alt="Platform Technology Ventures Logo" width="150" height="50" class="rounded-md shadow-md mb-8">
-        <p class="text-lg text-gray-600">Empowering innovation and growth through cutting-edge technology solutions.</p>
-        <p class="text-lg text-gray-600 font-semibold mt-4">Transforming industries with AI-driven solutions.</p>
+<body>
+    <div id="header">
+        <div class="container">
+            <div id="logo">
+                <img src="/pastedGraphic.png" alt="Platform Technology Ventures Logo" class="rounded-md shadow-md">
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#funding">Funding</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
-    <section class="bg-blue-100 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-gray-800">Our Story</h2>
-            <div class="grid grid-cols-1 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">AI Datascientist Helper</h3>
-                    <p class="text-gray-600">Our first product are AI-driven tools for the everyday datascientist.  From Simple things as merging csv files to parsing old and annoying formats! </p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">AI for document management</h3>
-                    <p class="text-gray-600">Our second tool is an AI-driven set of document management tools, built on a decentralized file storage infrastructure to ensure certification and ease of use.</p>
-                </div>
+    <div class="section" id="home">
+        <div class="container">
+            <h1>Platform Technology Ventures</h1>
+            <p class="text-lg">Empowering innovation and growth through cutting-edge technology solutions.</p>
+            <p class="text-lg font-semibold mt-4">Transforming industries with AI-driven solutions.</p>
+        </div>
+    </div>
+
+    <section id="story" class="section bg-primary">
+        <div class="container">
+            <h2>Current Products and Developments</h2>
+            <div class="bg-white">
+                <h3>Silicon Workers</h3>
+                <p>Our goal is to integrate AI Agents into our daily workflow, so think of AI agents as your employees who need guidance and management.</p>
+                <p>Along these lines, while working together, we typically will "task out" employees by making email requests.  "Hey Joe, can you look at this data and figure out what the trends are?"  </p>
+                <p>Combinging these into a product offering, we have created an "AI datascientist" that you can email assignments to.  From Simple things as merging csv files to parsing old and annoying formats!</p>
+                <a href="https://www.siliconworkers.com" class="button">Learn More</a>
+            </div>
+            <div class="bg-white">
+                <h3>Certifying Photos with credential at time of capture</h3>
+                <h2>Show me the RECEIPTS!</h2>
+                <p>What if you could take a photo and lock in (with encrypted credentials) any situation or document and prove its condition at time and location of capture?  Post these to a blockchain and share with others!</p>
+                <p>Our second tool is an AI-driven set of document management tools, built on a decentralized file storage infrastructure to ensure certification and ease of use.</p>
+                <a href="mailto:sjd@platformtechnologyventures.com" class="button">Contact Us</a>
             </div>
         </div>
     </section>
 
-    <section class="bg-blue-50 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-gray-800">NSF-Funded Research</h2>
-            <div class="grid grid-cols-1 gap-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-2xl font-semibold mb-4 text-blue-800">Advancing Decentralized Autonomous Organizations (DAOs)</h3>
-                    <p class="text-gray-700 mb-4">Our SBIR Phase I project focuses on developing DAOs as innovative digital collaboration and governance systems. These blockchain-based structures enable democratic decision-making without centralized authority, opening new possibilities for business collaborations among diverse entities.</p>
-                    <p class="text-gray-700 mb-4">Key aspects of our research:</p>
-                    <ul class="list-disc list-inside text-gray-700 mb-4">
-                        <li>Exploring DAOs in voluntary carbon credits, a market projected to reach $40B by 2030</li>
-                        <li>Developing a versatile DAO platform for various markets requiring decentralized participation</li>
-                        <li>Enhancing operational efficiency and fostering the growth of new technologies</li>
-                        <li>Creating more democratic and inclusive systems across multiple sectors</li>
-                    </ul>
-                    <p class="text-gray-700">Our research aims to revolutionize fields such as finance, healthcare, environmental sustainability, and more.</p>
+    <section id="research" class="section bg-secondary">
+        <div class="container">
+            <h2>NSF-Funded Research</h2>
+            <div class="bg-white">
+                <h3>Advancing Decentralized Autonomous Organizations (DAOs)</h3>
+                <p>Our SBIR Phase I project focuses on developing DAOs as innovative digital collaboration and governance systems. These blockchain-based structures enable democratic decision-making without centralized authority, opening new possibilities for business collaborations among diverse entities.</p>
+                <p>Key aspects of our research:</p>
+                <ul>
+                    <li>Exploring DAOs in voluntary carbon credits, a market projected to reach $40B by 2030</li>
+                    <li>Developing a versatile DAO platform for various markets requiring decentralized participation</li>
+                    <li>Enhancing operational efficiency and fostering the growth of new technologies</li>
+                    <li>Creating more democratic and inclusive systems across multiple sectors</li>
+                    <li>Our research aims to revolutionize fields such as finance, healthcare, environmental sustainability, and more</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="funding" class="section bg-primary">
+        <div class="container">
+            <h2>Funding and Growth</h2>
+            <div class="bg-white">
+                <h3>Our Funding Journey</h3>
+                <p>We have secured $275k in funding from America's SeedFund, positioning us for growth and innovation in the AI sector.</p>
+                <a href="https://seedfund.nsf.gov/awardees/phase-1/details/?company=platform-technology-ventures-llc" class="button">Learn More</a>
+            </div>
+            <div class="bg-white">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <img src="https://cloud.google.com/_static/cloud/images/social-icon-google-cloud-1200-630.png" 
+                         alt="Google Cloud Logo" 
+                         style="max-width: 100px; height: auto;">
+                    <h3 style="margin: 0;">Google Cloud for Startups</h3>
+                </div>
+                <p>We have been accepted into the <a href="https://cloud.google.com/startup?hl=en">Google Cloud for Startups</a> program at the Scale level. We are excited to work with Google to grow our offerings.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-3 col-6-medium col-12-small">
+                    <section class="widget contact last">
+                        <h3>Contact Us</h3>
+                        <ul class="social">
+                            <li><a href="#" class="icon brands fa-twitter"></a></li>
+                            <li><a href="#" class="icon brands fa-facebook-f"></a></li>
+                            <li><a href="#" class="icon brands fa-linkedin"></a></li>
+                        </ul>
+
+                    </section>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="bg-blue-100 py-16">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold mb-8 text-gray-800">Funding and Growth</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold mb-4">Our Funding Journey</h3>
-                <p class="text-gray-600">We have secured $275k in funding from America's SeedFund, positioning us for growth and innovation in the AI sector.</p>
-                <p class="text-gray-600">For more information, see the award details <a href="https://seedfund.nsf.gov/awardees/phase-1/details/?company=platform-technology-ventures-llc">here.</a></p>
+            <div id="copyright">
+                <p>&copy; 2024 Platform Technology Ventures LLC. All rights reserved.</p>
             </div>
-        </div>
-    </section>
-
-    <footer class="bg-blue-100 py-4">
-        <div class="container mx-auto px-4 pt-4 pb-4 mb-10">
-            <p class="text-lg text-gray-600">2024 Platform Technology Ventures LLC. All rights reserved.</p>
-            <ul class="list-none text-lg">
-                <li class="inline-block mr-6"><p class="mt-2">Contact us: <a href="mailto:sjd@platformtechnologyventures.com" class="underline hover:text-blue-300">sjd@platformtechnologyventures.com</a></p></li>
-            </ul>
         </div>
     </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('.section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        sections.forEach(section => observer.observe(section));
+    </script>
 </body>
 </html>
