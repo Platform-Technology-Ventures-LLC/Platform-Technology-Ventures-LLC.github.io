@@ -163,6 +163,9 @@
             font-weight: 600;
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            text-align: center;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
         }
 
         .button:hover {
@@ -560,6 +563,34 @@
             .hamburger {
                 position: relative;
                 z-index: 1001;
+            }
+        }
+
+        /* Mobile button adjustments */
+        @media screen and (max-width: 768px) {
+            .button {
+                display: block;
+                width: 100%;
+                padding: 16px 24px; /* Larger touch target */
+                margin: 10px 0;
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+
+            /* Adjust button spacing in cards */
+            .bg-white .button {
+                margin-top: 1rem;
+            }
+
+            /* Remove hover effect on touch devices */
+            .button:hover {
+                transform: none;
             }
         }
     </style>
