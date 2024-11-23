@@ -24,19 +24,7 @@
 
 /* Mobile navigation */
 .hamburger {
-    display: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-}
-
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px 0;
-    background: white;
-    transition: all 0.3s ease;
+    display: none !important;
 }
 
 /* Mobile styles */
@@ -435,5 +423,49 @@ body {
     #header #nav ul li a:hover {
         background: rgba(255, 255, 255, 0.1);
         border-radius: 4px;
+    }
+}
+
+/* Style the left navPanel */
+#navPanel {
+    background: var(--primary-color) !important;
+    padding-top: 60px !important;
+}
+
+#navPanel .link {
+    color: var(--white) !important;
+    font-size: 1.1rem !important;
+    padding: 12px 20px !important;
+    transition: background 0.3s ease !important;
+}
+
+#navPanel .link:hover {
+    background: var(--primary-dark) !important;
+    color: var(--white) !important;
+}
+
+/* Style the toggle button */
+.navPanelToggle {
+    background: var(--primary-color) !important;
+}
+
+/* The three lines of the hamburger */
+.navPanelToggle:before,
+.navPanelToggle:after,
+.navPanelToggle span {
+    background: var(--white) !important;
+}
+
+/* Ensure consistent spacing */
+@media screen and (max-width: 768px) {
+    #header .container {
+        padding-left: 60px;
+    }
+}
+
+/* Ensure logo doesn't get covered */
+@media screen and (max-width: 768px) {
+    #header .container {
+        padding-left: 60px; /* Make room for the navPanel toggle */
     }
 } 
