@@ -468,4 +468,34 @@ body {
     #header .container {
         padding-left: 60px; /* Make room for the navPanel toggle */
     }
+}
+
+/* Add/update these styles */
+body {
+    padding-top: 60px; /* Base padding for fixed header */
+}
+
+@media screen and (max-width: 768px) {
+    #home {
+        padding-top: 160px; /* Increased to account for stacked header */
+    }
+
+    /* Ensure logo stays visible */
+    #header .container {
+        padding-left: 60px; /* Make room for the navPanel toggle */
+    }
+
+    /* Adjust hero image container */
+    .hero-image {
+        margin-top: 2rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-image img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 } 
