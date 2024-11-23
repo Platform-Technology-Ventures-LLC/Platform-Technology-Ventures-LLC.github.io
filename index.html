@@ -85,9 +85,11 @@
         }
 
         #logo img {
-            width: 200px;
+            width: 250px;
             height: auto;
             transition: transform 0.3s ease;
+            border-radius: 20px;
+            padding: 8px;
         }
 
         #logo img:hover {
@@ -135,7 +137,7 @@
         }
 
         .section.bg-secondary {
-            background-color: var(--secondary-color);
+            background-color: var(--primary-color);
             color: var(--white);
         }
 
@@ -214,6 +216,104 @@
             line-height: 1.7;
             margin-bottom: 1rem;
         }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .button.secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .button.secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            margin-bottom: 0;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -225,7 +325,7 @@
             <nav id="nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#story">Products</a></li>
                     <li><a href="#research">Research</a></li>
                     <li><a href="#funding">Funding</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -236,9 +336,37 @@
 
     <div class="section" id="home">
         <div class="container">
-            <h1>Platform Technology Ventures</h1>
-            <p class="text-lg">Empowering innovation and growth through cutting-edge technology solutions.</p>
-            <p class="text-lg font-semibold mt-4">Transforming industries with AI-driven solutions.</p>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Platform Technology Ventures</h1>
+                    <p class="hero-subtitle">Empowering innovation and growth through cutting-edge technology solutions.</p>
+                    <p class="hero-description">Transforming industries with AI-driven solutions and blockchain technology to create a more efficient, transparent future.</p>
+                    <div class="hero-buttons">
+                        <a href="#story" class="button primary">Explore Our Products</a>
+                        <a href="#contact" class="button secondary">Get in Touch</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="/hero-illustration.png" alt="Innovation Illustration">
+                </div>
+            </div>
+            <div class="hero-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>AI Integration</h3>
+                    <p>Seamless AI solutions for business automation</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3>Blockchain</h3>
+                    <p>Secure, transparent decentralized systems</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>Cutting-edge research and development</p>
+                </div>
+            </div>
         </div>
     </div>
 
