@@ -1,0 +1,28 @@
+# === Internal / strategy docs — NEVER publish to this public repo ===
+newstuff.md
+*.private.md
+*.draft.md
+/notes/
+/scratch/
+/private/
+
+# === Secrets & credentials ===
+.env
+.env.*
+*.key
+*.pem
+*.p12
+secrets*.json
+credentials*.json
+
+# === macOS / OS junk ===
+.DS_Store
+**/.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# === Editor junk ===
+*.swp
+*~
+.vscode/
+.idea/
